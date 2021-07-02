@@ -13,28 +13,39 @@
 #PageLayoutExample:
 #WidgetsExample:
 
+<MainMenu@BoxLayout>:
+    orientation: "vertical"
+    Button:
+        text: "Layouts"
+        on_press: app.manager.push("PageLayoutExample")
+    Button:
+        text: "Widgets"
+        on_press: app.manager.push("WidgetsExample")
+    Button:
+        text: "Images"
+        on_press: app.manager.push("ImageExample")
+
+
+    #Layouts => PageLayoutExample
+    #Widgets
+    #Images
+
+
 <MyScreenManager>:
+    Screen:
+        name: "MainMenu"
+        MainMenu:
+    Screen:
+        name: "PageLayoutExample"
+        BoxLayoutWithActionBar:
+            title: "Layouts"
+            PageLayoutExample:
+    Screen:
+        name: "WidgetsExample"
+        BoxLayoutWithActionBar:
+            title: "Widgets"
+            WidgetExamples:
 
-    Screen:
-        name: "screen1"
-        BoxLayout:
-            Button:
-                text: "go to screen images"
-                on_press: app.manager.push("ImageExample")
-            Button:
-                text: "go to screen 2"
-                on_press: app.manager.push("screen2")
-
-    Screen:
-        name: "screen2"
-        Button:
-            text: "button2"
-            on_press: app.manager.pop()
-    Screen:
-        name: "screen3"
-        Button:
-            text: "button3"
-            on_press: app.manager.pop()
     Screen:
         name: "ImageExample"
         BoxLayoutWithActionBar:
