@@ -1,0 +1,110 @@
+<PageLayoutExample@PageLayout>:     #we get some kind strange animation
+    MainWidget:
+    BoxLayoutExample:
+    AnchorLayoutExample:
+    GridLayoutExample:
+
+<ScrollViewExample@ScrollView>
+    StackLayoutExample:
+        size_hint: 1,None
+        height: self.minimum_height
+
+<StackLayoutExample>:
+    #left, top, right, bottom
+    #padding: ("20dp","20dp","20dp","20dp")           #very interest effect
+    #spacing: "20dp", "20dp"                    #hor and vertical
+    # left-right top-bottom
+    #orientation: "lr-tb"
+#    Button:
+#       text: "A"
+#       size_hint: .2,.2
+
+<GridLayoutExample@GridLayout>:
+    #rows
+    #cols
+    rows: 2
+    Button:
+        text: "A"
+        size_hint: None, 1
+        width: "60dp"
+    BoxLayoutExample:   #replace b button with already defined BoxLayoutExample
+    Button:
+        text: "C"
+    Button:
+        text: "D"
+        size_hint: None, 1
+        width: "60dp"
+    Button:
+        text: "E"
+    Button:
+        text: "F"
+
+
+<AnchorLayoutExample>:
+    # right, left, center #default is center center
+    anchor_x: "left"
+    # bottom, top, center
+    anchor_y: "top"
+    Button:
+        text: "A"
+        size_hint: .1, .1
+
+<BoxLayoutExample>:
+    orientation: "horizontal"
+    Button:
+        text: "A"
+        #size_hint: .8, .5    #use only 80% of the width and 50% of the height (look it over) default is 1,1
+        #size_hint: 1, .5      #use only 50% height of the button
+        #size_hint: .5,None       #Can mix too
+        #size: "40dp","40dp"
+        #width: "100dp"
+        height: "60dp"
+        # pos uses dictionary
+        # x, center_x, right
+        # y, center_y, top
+        #pos_hint: {"x": 0}         #Will show button at left
+        #pos_hint: {"x": .1}         #Will show button at left but 10% indented
+        #pos_hint: {"x": .5}         #left side will start halfway is used rest of width
+        #pos_hint: {"x": .75}        # starts push off right side of screen cutting it off
+        #pos_hint: {"right": 1}      #right side of button lines up at 100%
+        #pos_hint: {"right": .5}     #right side of button lines up .5 or in the middle
+        size_hint: .5, .5
+        pos_hint: {"center_y": .5}
+    BoxLayout
+        orientation: "vertical"
+        spacing: "5dp"  #puts light space between buttons
+        Button:
+            text: "B1"
+        Button:
+            text: "B2"
+        Button:
+            text: "B3"
+        Button:
+            text: "B4"
+            #size_hint: 1, 2         #button is twice height first one
+    Label:
+        text: "C"
+
+<MainWidget>:           #Defination of main widget
+    Button:
+        # You'll see button in bottom left.  This is at position 0,0 with a default size of 100x100 pixels
+        text: "Hello"
+        size: 400,200            #change default size
+        pos: 100,200             # now 100 for x and 200 for the y
+        size: "40dp","40dp"            #change default size in dp  using 100, 200 too big 40 is size of
+                                       # the finger
+        pos: "100dp","200dp"            # now 100dp for x and 200dp for the y
+        color: 1,0,0,1          #rgba red green blue alpha   between 0 and 1  this will make red
+    Button:
+        text: "Hello2"
+        size: "40dp","40dp"         # change both to 50 dp to make text fit in button
+        pos: "200dp","300dp"       #changed pos so it is not on top of the other button
+        color: 0,0,1,1              #blue
+    Label:
+        text: "My Label"
+        size: "40dp","40dp"         # you can actually rename a button to a label using same stats
+        pos: "200dp","330dp"       # but I added it so see it in action and adjusted y to be right over 2nd button
+        color: 0,1,0,1              #green
+
+# Problem is that if we resize the windows, stuff can get cut off.  We'll address that with
+# a layout like box
