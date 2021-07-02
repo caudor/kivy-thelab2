@@ -10,7 +10,23 @@
 #PageLayoutExample:
 #WidgetsExample:
 
-ImageExample:
+MyScreenManager:
 
+<MyScreenManager@ScreenManager>:
+    Screen:
+        name: "screen1"
+        Button:
+            text: "button1"
+            on_press: root.transition.direction="left"; root.current = "screen3"
+    Screen:
+        name: "screen2"
+        Button:
+            text: "button2"
+            on_press: root.transition.direction="right"; root.current = root.previous()
+    Screen:
+        name: "screen3"
+        Button:
+            text: "button3"
+            on_press: root.transition.direction="right"; root.current = root.previous()
 
 
