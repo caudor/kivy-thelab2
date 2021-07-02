@@ -5,7 +5,7 @@ from kivy.uix.gridlayout import GridLayout
 Builder.load_file("widget_examples.kv")
 
 
-class WidgetExamples(GridLayout):
+class WidgetsExample(GridLayout):
     count = 1
     count_enabled = BooleanProperty(False)
     my_text = StringProperty("1")
