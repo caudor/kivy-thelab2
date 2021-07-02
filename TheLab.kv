@@ -18,11 +18,24 @@ MyScreenManager:
         name: "screen1"
         BoxLayout:
             Button:
-                text: "go to screen 2"
-                on_press: root.push("screen2")
+                text: "go to screen images"
+                on_press: root.push("ImageExample")
             Button:
                 text: "go to screen 3"
                 on_press: root.push("screen3")
+    Screen:
+        name: "ImageExample"
+        BoxLayout:
+            orientation: "vertical"
+            ActionBar:
+                ActionView:
+                    ActionPrevious:
+                        title: "images"
+                        on_release: root.pop()
+                        app_icon: "images/lab_logo.png"
+                        app_icon_height: "28dp"
+                        app_icon_width: "28dp"
+            ImageExample:
     Screen:
         name: "screen2"
         Button:
