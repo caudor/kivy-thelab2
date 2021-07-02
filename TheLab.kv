@@ -1,5 +1,6 @@
 #:import layout_examples layout_examples
 #:import widget_examples widget_examples
+#:import navigation_screen_manager navigation_screen_manager
 
 #MainWidget:
 #BoxLayoutExample:                   #now MainWidget definition ignored
@@ -12,21 +13,25 @@
 
 MyScreenManager:
 
-<MyScreenManager@ScreenManager>:
+<MyScreenManager@NavigationScreenManager>:
     Screen:
         name: "screen1"
-        Button:
-            text: "button1"
-            on_press: root.transition.direction="left"; root.current = "screen3"
+        BoxLayout:
+            Button:
+                text: "go to screen 2"
+                on_press: root.push("screen2")
+            Button:
+                text: "go to screen 3"
+                on_press: root.push("screen3")
     Screen:
         name: "screen2"
         Button:
             text: "button2"
-            on_press: root.transition.direction="right"; root.current = root.previous()
+            on_press: root.pop()
     Screen:
         name: "screen3"
         Button:
             text: "button3"
-            on_press: root.transition.direction="right"; root.current = root.previous()
+            on_press: root.pop()
 
 
